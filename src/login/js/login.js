@@ -28,6 +28,11 @@
                 "this": "{that}.dom.closeButton",
                 "method": "click",
                 "args": ["{that}.clickCloseButton"]
+            },
+            "afterRender.clickSignUpLink": {
+                "this": "{that}.dom.signUpLink",
+                "method": "click",
+                "args": ["{that}.clickSignUpLink"]
             }
         },
         invokers: {
@@ -38,22 +43,27 @@
             clickCloseButton: {
                 "funcName": "gpii.loginPanel.clickCloseButton",
                 "args": ["{that}.dom.overlayPanel","{that}.dom.modalPanel"]
+            },
+            clickSignUpLink: {
+                "funcName": "gpii.loginPanel.clickSignUpLink",
+                "args": []
             }
         },
         selectors: {
             signUpLabel: ".gpiic-login-label",
-            signUpDescription: ".gpiic-signup-description",
-            usernameLabel: ".gpiic-signup-login-usernameLabel",
-            passwordLabel: ".gpiic-signup-login-passwordLabel",
-            cancelButton: ".gpiic-signup-login-cancelButton",
-            loginButton: ".gpiic-signup-login-loginButton",
-            recoveryBackButton: ".gpiic-signup-login-recoveryBackButton",
-            username: ".gpiic-signup-login-usernameTextfield",
-            passwd: ".gpiic-signup-login-passwdTextfield",
-            usernameDescription: ".gpiic-signup-login-usernameDescription",
+            signUpDescription: ".gpiic-login-description",
+            usernameLabel: ".gpiic-login-usernameLabel",
+            passwordLabel: ".gpiic-login-passwordLabel",
+            cancelButton: ".gpiic-login-cancelButton",
+            loginButton: ".gpiic-login-loginButton",
+            username: ".gpiic-login-usernameTextfield",
+            passwd: ".gpiic-login-passwdTextfield",
+            usernameDescription: ".gpiic-login-usernameDescription",
             overlayPanel: ".gpiic-login-overlay",
             modalPanel: ".gpiic-login-modal",
-            loginFailed: ".gpiic-login-failed-notification"
+            loginFailed: ".gpiic-login-failed-notification",
+            signUpLink: ".gpiic-login-signUpLink",
+            signUpLinkDescription: ".gpiic-login-signUpLinkDescription"
         },
         selectorsToIgnore: ["username","passwd", "usernameDescription", "overlayPanel", "modalPanel"],
         protoTree: {
@@ -63,7 +73,9 @@
             passwordLabel: {messagekey: "passwordLabel"},
             cancelButton: {messagekey: "cancelButton"},
             loginButton: {messagekey: "loginButton"},
-            loginFailed: {messagekey: "loginFailed"}
+            loginFailed: {messagekey: "loginFailed"},
+            signUpLink: {messagekey: "signUpLink"},
+            signUpLinkDescription: {messagekey: "signUpLinkDescription"}
         },
         strings: {
         }
@@ -187,6 +199,10 @@
     gpii.loginPanel.clickCloseButton = function (overlayPanel,modalPanel) {
         overlayPanel.hide();
         modalPanel.hide();
+    };
+    
+    gpii.loginPanel.clickSignUpLink = function () {
+        window.location.href = location.origin + "/prefsEditors/demos/signup/";
     };
 
 })(jQuery, fluid);

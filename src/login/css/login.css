@@ -254,6 +254,16 @@ div.gpii-signup-form section {
     display: block;
 }
 
+.gpii-login-linkDescription {
+    font-family: Courier New;
+    font-size: 1em;
+    display: inline-block;
+}
+
+.gpii-login-link {
+	font-family: Courier New;
+}
+
 .gpii-signup-terms {
     position: relative;
     font-weight: normal;

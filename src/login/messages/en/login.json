@@ -1,9 +1,11 @@
 {
     "signUpLabel": "Log in",
-    "signUpDescription": "Enter your account details",
+    "signUpDescription": "Enter your account details.",
     "usernameLabel": "Enter email or username",
     "passwordLabel": "Password",
     "cancelButton": "cancel",
     "loginButton": "log in",
-    "loginFailed": "Cloud for All account not detected."
+    "loginFailed": "Cloud for All account not detected.",
+    "signUpLink": "Sign up now.",
+    "signUpLinkDescription": "Don't have an account?"
 }
