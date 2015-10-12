@@ -147,6 +147,13 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         "gpii.primarySchema.autoAdjust": {
             "type": "boolean",
             "default": false
+        },
+        "gpii.primarySchema.brightness": {
+            "type": "number",
+            "default": 50,
+            "minimum": 0,
+            "maximum": 100,
+            "divisibleBy": 5
         }
     };
 

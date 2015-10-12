@@ -38,6 +38,8 @@
     "otherLabel": "other",
     "notAppliedAtAnyTimesLabel": "not applied at any times",
     "timeLabel": "Time",
+    "brightnessLabel": "Brightness",
+    "cursorSizeLabel": "lala",
     "toLabel": "  to  ",
     "appliesToLabel": "applies to ",
     "devicesTextLabel" : " devices",

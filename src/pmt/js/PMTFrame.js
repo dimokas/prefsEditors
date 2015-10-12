@@ -24,7 +24,30 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 onLogin: null,
                 onLogout: null
             },
+            components: {
+                textfieldStepper: {
+                    type: "gpii.adjuster.textfieldStepper",
+                    container: ".gpiic-context-brightness-stepper",
+                    createOnEvent: "afterRender",
+                    options: {
+                        sourceApplier: "{pmt}.applier",
+                        rules: {
+                            "value": "value"
+                        },
+                        model: {
+                            value: 0
+                        },
+                        range: {
+                            min: -5,
+                            max: 5,
+                            step: 3
+                        },
+                        renderOnInit: true
+                    }
+                }
+            },
             selectors: {
+                brightness: ".gpiic-context-brightness-stepper",
                 myPreferencesLabel: ".gpiic-pmt-preferenceSetSelectionButtonMyPreferencesLabel",
                 allPreferencesLabel: ".gpiic-pmt-preferenceSetSelectionButtonAllPreferencesLabel",
                 saveAndApplyButtonLabel: ".flc-prefsEditor-save",
@@ -76,6 +99,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 otherLabel: ".gpiic-select-device-other-label",
                 notAppliedAtAnyTimesLabel: ".gpiic-context-times-notapplied-label",
                 timeLabel: ".gpiic-context-header-time-label",
+                brightnessLabel: ".gpiic-context-header-brightness-label",
                 toLabel: ".gpiic-context-time-to-label",
                 cancelButton: ".gpiic-context-cancelButton",
                 doneButton: ".gpiic-context-doneButton",
@@ -91,6 +115,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 sharingEmail: ".gpiic-link-copy-enter-email-address",
                 contextHeaderDevices: ".gpiic-context-header-devices",
                 contextHeaderTime: ".gpiic-context-header-time",
+                contextHeaderBrightness: ".gpiic-context-header-brightness",
                 copyIcon: ".gpiic-email-copy-fontIcon",
                 selectDevice: ".gpiic-context-devices-list-items",
                 timeInputsDiv: ".gpiic-context-time-whole-div",
@@ -112,6 +137,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 doNotMatch: ".gpiic-error-description",
                 backButton: ".gpiic-error-backButton"
             },
+            selectorsToIgnore: ["brightness"],
             markup: {
                 /*baseSet:
                     "<div class='gpiic-prefsEditor-contextFrame-row'>" +
@@ -479,6 +505,11 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                     "this": "{that}.dom.timeLabel",
                     "method": "text",
                     "args": ["{that}.msgLookup.timeLabel"]
+                },
+                "onReady.setBrightnessLabel": {
+                    "this": "{that}.dom.brightnessLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.brightnessLabel"]
                 },
                 "onReady.setFromColonText": {
                     "this": "{that}.dom.fromColon",
@@ -1046,6 +1077,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         var contextHeader = that.dom.locate("contextHeader");
         var contextHeaderDevices = that.dom.locate("contextHeaderDevices");
         var contextHeaderTime = that.dom.locate("contextHeaderTime");
+        var contextHeaderBrightness = that.dom.locate("contextHeaderBrightness");
 
         if (tabCondition.hasClass(that.options.styles.deactiveTab)){
             tabCondition.removeClass(that.options.styles.deactiveTab);
@@ -1057,14 +1089,9 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         }
         contextHeader.show();
         sharingEmail.hide();
-        /*if (that.dom.locate("baseSetDescription").hasClass(that.options.styles.invisible)){
-            that.dom.locate("baseSetDescription").removeClass(that.options.styles.invisible);
-            that.dom.locate("deleteSetLabel").removeClass(that.options.styles.invisible);
-        }
-        that.dom.locate("baseSetDescription").addClass(that.options.styles.visible);
-        that.dom.locate("deleteSetLabel").addClass(that.options.styles.visible);*/
         contextHeaderDevices.show();
         contextHeaderTime.show();
+        contextHeaderBrightness.show();
     };
 
     gpii.pmt.enableTabShare = function (that) {
@@ -1074,6 +1101,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         var contextHeader = that.dom.locate("contextHeader");
         var contextHeaderDevices = that.dom.locate("contextHeaderDevices");
         var contextHeaderTime = that.dom.locate("contextHeaderTime");
+        var contextHeaderBrightness = that.dom.locate("contextHeaderBrightness");
 
         if (tabSharing.hasClass(that.options.styles.deactiveTab)){
             tabSharing.removeClass(that.options.styles.deactiveTab);
@@ -1085,14 +1113,9 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         }
         contextHeader.show();
         sharingEmail.show();
-        /*if (that.dom.locate("baseSetDescription").hasClass(that.options.styles.visible)){
-            that.dom.locate("baseSetDescription").removeClass(that.options.styles.visible);
-            that.dom.locate("deleteSetLabel").removeClass(that.options.styles.visible);
-        }
-        that.dom.locate("baseSetDescription").addClass(that.options.styles.invisible);
-        that.dom.locate("deleteSetLabel").addClass(that.options.styles.invisible);*/
         contextHeaderDevices.hide();
         contextHeaderTime.hide();
+        contextHeaderBrightness.hide();
     };
 
     gpii.pmt.setBoxValues = function (contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, currentSetId) {
@@ -1420,5 +1443,52 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         outerPreviewEnhancerOptions: "{originalEnhancerOptions}.options.originalUserOptions",
         emptyComponentType: "fluid.emptySubcomponent"
     });
-    
+
+    fluid.defaults("gpii.pmt.brightness", {
+        gradeNames: ["fluid.prefs.panel", "autoInit"],
+        /*preferenceMap: {
+            "gpii.primarySchema.brightness": {
+                "model.value": "default",
+                "controlValues.brightness.min": "minimum",
+                "controlValues.brightness.max": "maximum",
+                "controlValues.brightness.step": "divisibleBy"
+            }
+        },*/
+        selectors: {
+            brightness: ".gpiic-context-brightness-stepper",
+        },
+        selectorsToIgnore: ["brightness"],
+        components: {
+            textfieldStepper: {
+                type: "gpii.adjuster.textfieldStepper",
+                container: ".gpiic-context-brightness-stepper",
+                createOnEvent: "afterRender",
+                options: {
+                    sourceApplier: "{brightness}.applier",
+                    rules: {
+                        "value": "value"
+                    },
+                    model: {
+                        value: 0
+                    },
+                    range: {
+                        min: -5,
+                        max: 5,
+                        step: 3
+                    },
+                    renderOnInit: true
+                    /*model: {
+                        value: "{brightness}.model.value"
+                    },
+                    range: "{brightness}.options.controlValues.brightness"*/
+                    //labelledbyDomElement: "{universalVolume}.dom.universalVolumeLabel"
+                }
+            }
+        }/*,
+        protoTree: {
+            universalVolumeLabel: {messagekey: "universalVolumeLabel"},
+            universalVolumeDescription: {messagekey: "universalVolumeDescription"}
+        }*/
+    });
+
 })(fluid);

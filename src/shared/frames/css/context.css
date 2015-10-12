@@ -239,23 +239,23 @@ ul {
 }
 
 
-.gpii-context-header-time {
+.gpii-context-header-time, .gpii-context-header-brightness {
     font-family: "Open Sans",sans-serif;
     font-size: 1em;
     display: inline-block;
     position: relative;
-    margin-top: 3em;
+    margin-top: 1em;
     margin-left: 2em;
 }
 
-.gpii-context-header-time-fontIcon {
+.gpii-context-header-time-fontIcon, .gpii-context-header-brightness-fontIcon {
     width: 5em;
     border-top: 5px solid #F2F2F2;
     display: table;
     margin-top: 0.5em;
 }
 
-.gpii-context-header-time-fontIcon:before {
+.gpii-context-header-time-fontIcon:before, .gpii-context-header-brightness-fontIcon:before {
     font-size: 60px;
     font-weight: normal;
     color: #3CBCBC;
@@ -268,7 +268,11 @@ ul {
     content: "\e66d";
 }
 
-.gpii-context-header-time-label {
+.gpii-context-header-brightness-fontIcon:before {
+    content: "\e66d";
+}
+
+.gpii-context-header-time-label, .gpii-context-header-brightness-label {
     padding-top: 0.8em;
     display: inline-block;
     font-size: 1.2em;
