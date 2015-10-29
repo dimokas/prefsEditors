@@ -67,9 +67,11 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 appliesToAllDevicesLabel: ".gpiic-context-devices-notapplied-label",
                 anyNoiseLevelLabel: ".gpiic-context-noise-any-label",
                 anyBrightnessLevelLabel: ".gpiic-context-brightness-any-label",
+                priorityDescriptionLevelLabel: ".gpiic-context-priority-description-label",
                 devicesLabel: ".gpiic-context-header-devices-label",
                 noiseLabel: ".gpiic-context-header-noise-label",
                 brightnessLabel: ".gpiic-context-header-brightness-label",
+                priorityLabel: ".gpiic-context-header-priority-label",
                 allLabel: ".gpiic-select-device-all-label",
                 desktopLabel: ".gpiic-select-device-desktop-label",
                 laptopLabel: ".gpiic-select-device-laptop-label",
@@ -88,6 +90,11 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 neutralLabel: ".gpiic-select-brightness-neutral-label",
                 brightLabel: ".gpiic-select-brightness-bright-label",
                 veryBrightLabel: ".gpiic-select-brightness-very-bright-label",
+                veryHighLabel: ".gpiic-select-priority-very-high-label",
+                highLabel: ".gpiic-select-priority-high-label",
+                normalLabel: ".gpiic-select-priority-normal-label",
+                lowLabel: ".gpiic-select-priority-low-label",
+                veryLowLabel: ".gpiic-select-priority-very-low-label",
                 notAppliedAtAnyTimesLabel: ".gpiic-context-times-notapplied-label",
                 timeLabel: ".gpiic-context-header-time-label",
                 toLabel: ".gpiic-context-time-to-label",
@@ -111,6 +118,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 selectDevice: ".gpiic-context-devices-list-items",
                 selectNoise: ".gpiic-context-noise-list-items",
                 selectBrightness: ".gpiic-context-brightness-list-items",
+                selectPriority: ".gpiic-context-priority-list-items",
                 timeInputsDiv: ".gpiic-context-time-whole-div",
                 timeFromHour: ".gpiic-context-time-from-hour",
                 timeFromMinute: ".gpiic-context-time-from-minute",
@@ -508,6 +516,11 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                     "method": "text",
                     "args": ["{that}.msgLookup.brightnessLabel"]
                 },
+                "onReady.setPriorityLabel": {
+                    "this": "{that}.dom.priorityLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.priorityLabel"]
+                },
                 "onReady.setFromColonText": {
                     "this": "{that}.dom.fromColon",
                     "method": "text",
@@ -537,6 +550,11 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                     "this": "{that}.dom.anyBrightnessLevelLabel",
                     "method": "text",
                     "args": ["{that}.msgLookup.anyBrightnessLevelLabel"]
+                },
+                "onReady.setPriorityDescriptionLevelLabel": {
+                    "this": "{that}.dom.priorityDescriptionLevelLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.priorityDescriptionLevelLabel"]
                 },
                 "onReady.clickCancelButton": {
                     "this": "{that}.dom.cancelButton",
@@ -688,6 +706,31 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                     "method": "text",
                     "args": ["{that}.msgLookup.veryBrightLabel"]
                 },
+                "onReady.setVeryHighText": {
+                    "this": "{that}.dom.veryHighLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.veryHighLabel"]
+                },
+                "onReady.setHighText": {
+                    "this": "{that}.dom.highLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.highLabel"]
+                },
+                "onReady.setNormalText": {
+                    "this": "{that}.dom.normalLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.normalLabel"]
+                },
+                "onReady.setLowText": {
+                    "this": "{that}.dom.lowLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.lowLabel"]
+                },
+                "onReady.setVeryLowText": {
+                    "this": "{that}.dom.veryLowLabel",
+                    "method": "text",
+                    "args": ["{that}.msgLookup.veryLowLabel"]
+                },
                 "onReady.selectDevice": {
                     "this": "{that}.dom.selectDevice",
                     "method": "keyup",
@@ -717,6 +760,16 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                     "this": "{that}.dom.selectBrightness",
                     "method": "click",
                     "args": ["{that}.selectBrightness"]
+                },
+                "onReady.selectPriority": {
+                    "this": "{that}.dom.selectPriority",
+                    "method": "keyup",
+                    "args": ["{that}.selectPriority"]
+                },
+                "onReady.selectPriorities": {
+                    "this": "{that}.dom.selectPriority",
+                    "method": "click",
+                    "args": ["{that}.selectPriority"]
                 },
                 "onReady.setToLabel": {
                     "this": "{that}.dom.toLabel",
@@ -836,7 +889,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 },
                 clickDoneButton: {
                     "funcName": "gpii.pmt.clickDoneButton",
-                    "args": ["{gpiiSession}", "{that}.dom.overlayPanel", "{that}.dom.modalPanel", "{that}.dom.appliesToAllDevicesLabel", "{that}.dom.notAppliedAtAnyTimesLabel", "{that}.dom.untitledText", "{that}.options.selectors.untitledLabel", "{that}.options.selectors.untitledDescLabel", "{that}.dom.setLabel", "{that}.msgLookup.toLabel", "{that}.msgLookup.appliesToLabel", "{that}.msgLookup.devicesTextLabel", "{that}.dom.setNameOverlayPanel", "{that}.dom.setNameModalPanel", "{that}.dom.addSetLink", "{that}.dom.anyNoiseLevelLabel", "{that}.msgLookup.noiseLevelLabel", "{that}.msgLookup.anyLabel", "{that}.msgLookup.notAppliedAtAnyTimesLabel",  "{that}.dom.anyBrightnessLevelLabel", "{that}.msgLookup.brightnessLevelLabel", "{that}"]
+                    "args": ["{gpiiSession}", "{that}.dom.overlayPanel", "{that}.dom.modalPanel", "{that}.dom.appliesToAllDevicesLabel", "{that}.dom.notAppliedAtAnyTimesLabel", "{that}.dom.untitledText", "{that}.options.selectors.untitledLabel", "{that}.options.selectors.untitledDescLabel", "{that}.dom.setLabel", "{that}.msgLookup.toLabel", "{that}.msgLookup.appliesToLabel", "{that}.msgLookup.devicesTextLabel", "{that}.dom.setNameOverlayPanel", "{that}.dom.setNameModalPanel", "{that}.dom.addSetLink", "{that}.dom.anyNoiseLevelLabel", "{that}.msgLookup.noiseLevelLabel", "{that}.msgLookup.anyLabel", "{that}.msgLookup.notAppliedAtAnyTimesLabel", "{that}.dom.anyBrightnessLevelLabel", "{that}.msgLookup.brightnessLevelLabel", "{that}.dom.priorityDescriptionLevelLabel", "{that}.msgLookup.priorityText", "{that}"]
                 },
                 enableTabConditions: {
                     "funcName": "gpii.pmt.enableTabConditions",
@@ -869,6 +922,10 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                 selectBrightness: {
                     "funcName": "gpii.pmt.selectBrightness",
                     "args": ["{gpiiSession}", "{that}.options.selectors.selectBrightness", "{that}.msgLookup.brightnessLevelLabel", "{that}.dom.anyBrightnessLevelLabel"]
+                },
+                selectPriority: {
+                    "funcName": "gpii.pmt.selectPriority",
+                    "args": ["{gpiiSession}", "{that}.options.selectors.selectPriority", "{that}.msgLookup.priorityText", "{that}.dom.priorityDescriptionLevelLabel"]
                 },
                 populateFromHour: {
                     "funcName": "gpii.pmt.populateTime",
@@ -1107,6 +1164,13 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         anyBrightnessLevelLabel.text(value);
     };
 
+    gpii.pmt.selectPriority = function (sess, sPriority, priorityText, priorityDescription) {
+        sPriority = sPriority + " option:selected";
+        var prioritySelector = $(sPriority);
+        var value = prioritySelector.val() + priorityText;
+        priorityDescription.text(value);
+    };
+
     gpii.pmt.clickEmailCopyButton = function (to, body, subject) {
         gpii.pmt.sendWithGmail({
             to: to.val(),
@@ -1211,14 +1275,14 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         contextHeaderBrightness.hide();
     };
 
-    gpii.pmt.setBoxValues = function (contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, currentSetId, contextNoise, contextBrightness) {
+    gpii.pmt.setBoxValues = function (contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, currentSetId, contextNoise, contextBrightness, contextPriority) {
         var divSet = "#"+currentSetId;
         untitledSelector = divSet + " > " + untitledSelector;
         var untitledLabel = $(untitledSelector);
         untitledDescSelector =  divSet + " > " + untitledDescSelector;
         var untitledDescLabel = $(untitledDescSelector);
         untitledLabel.text(contextUntitled.val());
-        untitledDescLabel.text(contextDevice.text()+", "+contextTime.text()+", "+contextNoise.text()+", "+contextBrightness.text());
+        untitledDescLabel.text(contextDevice.text()+", "+contextTime.text()+", "+contextNoise.text()+", "+contextBrightness.text()+", "+contextPriority.text());
         setLabel.text(contextUntitled.val());
         addSetLink.focus();
     };
@@ -1237,7 +1301,7 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
     };
 
     
-    gpii.pmt.clickDoneButton = function (session, overlayPanel, modalPanel, contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, toLabel, appliesToLabel, devicesTextLabel, sPanel, sModal, addSetLink, contextNoise, noiseLevelText, anyText, notAppliedAtAnyTimesText, contextBrightness, brightnessLevelText, that) {
+    gpii.pmt.clickDoneButton = function (session, overlayPanel, modalPanel, contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, toLabel, appliesToLabel, devicesTextLabel, sPanel, sModal, addSetLink, contextNoise, noiseLevelText, anyText, notAppliedAtAnyTimesText, contextBrightness, brightnessLevelText, contextPriority, priorityText, that) {
         var timeTemp = contextTime.text().split(toLabel);
         var deviceTemp = contextDevice.text().split(appliesToLabel);
         deviceTemp = deviceTemp[1].toString().split(devicesTextLabel);
@@ -1245,6 +1309,8 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
         noiseLevel = noiseLevel[0].toString();
         var brightnessLevel = contextBrightness.text().split(brightnessLevelText);
         brightnessLevel = brightnessLevel[0].toString();
+        var priorityLevel = contextPriority.text().split(priorityText);
+        priorityLevel = priorityLevel[0].toString();
         
         var setFoundIndex = null;
         var setFound = false;
@@ -1279,18 +1345,19 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
             session.options.contextElements.id = session.options.currentSetId;
             session.options.contextElements.noise = noiseLevel;
             session.options.contextElements.brightness = brightnessLevel;
+            session.options.contextElements.priority = priorityLevel;
             if (!update){
                 if ((session.options.contextElements.fromTime !== session.options.contextElements.toTime) || (noiseLevel !== anyText) || (brightnessLevel !== anyText)) {
                     session.options.contextElements.enabled = true;
                     session.options.context.push(JSON.stringify(session.options.contextElements));
-                    gpii.pmt.setBoxValues(contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, session.options.currentSetId, contextNoise, contextBrightness);
+                    gpii.pmt.setBoxValues(contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, session.options.currentSetId, contextNoise, contextBrightness, contextPriority);
                 }
             }
             else{
                 if ((session.options.contextElements.fromTime !== session.options.contextElements.toTime) || (noiseLevel !== anyText) || (brightnessLevel !== anyText)) {
                     session.options.contextElements.enabled = true;
                     session.options.context.splice(session.options.currentSetId-1, 1, JSON.stringify(session.options.contextElements));
-                    gpii.pmt.setBoxValues(contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, session.options.currentSetId, contextNoise, contextBrightness);
+                    gpii.pmt.setBoxValues(contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, session.options.currentSetId, contextNoise, contextBrightness, contextPriority);
                 }
             }
             overlayPanel.hide();
@@ -1315,10 +1382,11 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
                     session.options.contextElements.id = session.options.currentSetId;
                     session.options.contextElements.noise = noiseLevel;
                     session.options.contextElements.brightness = brightnessLevel;
+                    session.options.contextElements.priority = priorityLevel;
                     if ((session.options.contextElements.fromTime !== session.options.contextElements.toTime) || (noiseLevel !== anyText) || (brightnessLevel !== anyText)) {
                         session.options.contextElements.enabled = true;
                         session.options.context.splice(session.options.currentSetId-1, 1, JSON.stringify(session.options.contextElements));
-                        gpii.pmt.setBoxValues(contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, session.options.currentSetId, contextNoise, contextBrightness);
+                        gpii.pmt.setBoxValues(contextDevice, contextTime, contextUntitled, untitledSelector, untitledDescSelector, setLabel, addSetLink, session.options.currentSetId, contextNoise, contextBrightness, contextPriority);
                     }
                     overlayPanel.hide();
                     modalPanel.hide();
@@ -1412,6 +1480,10 @@ https://github.com/GPII/prefsEditors/LICENSE.txt
             thatObj.locate("selectBrightness").val(currentContext.brightness);
             var brightnessValue = currentContext.brightness + thatObj.msgLookup.lookup("brightnessLevelLabel");
             thatObj.locate("anyBrightnessLevelLabel").text(brightnessValue);
+
+            thatObj.locate("selectPriority").val(currentContext.priority);
+            var priorityValue = currentContext.priority + thatObj.msgLookup.lookup("priorityText");
+            thatObj.locate("priorityDescriptionLevelLabel").text(priorityValue);
 
             // Update set name that lies at the bottom of PMT
             thatObj.locate("setLabel").text(currentContext.setName);

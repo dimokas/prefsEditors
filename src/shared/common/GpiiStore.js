@@ -229,6 +229,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
                 var newSet = {
                     "newSet": {
                         "name": context.setName,
+                        "priority": context.priority,
                         "preferences": transformedModel[index+1],
                         "conditions": [
                             timeObj

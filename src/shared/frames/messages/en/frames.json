@@ -71,5 +71,13 @@
     "veryBrightLabel": "very bright",
     "brightnessLabel": " Brightness ",
     "brightnessLevelLabel": " brightness level",
-    "anyBrightnessLevelLabel": "any brightness level"
+    "anyBrightnessLevelLabel": "any brightness level",
+    "veryHighLabel": "very high",
+    "highLabel": "high",
+    "normalLabel": "normal",
+    "lowLabel": "low",
+    "veryLowLabel": "very low",
+    "priorityLabel": " Priority ",
+    "priorityDescriptionLevelLabel": "very high priority",
+    "priorityText": " priority"
 }
