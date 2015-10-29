@@ -71,5 +71,13 @@
     "veryBrightLabel": "πολύ φωτεινό",
     "brightnessLabel": " Φωτεινότητα ",
     "brightnessLevelLabel": " επίπεδο φωτεινότητας",
-    "anyBrightnessLevelLabel": "οποιοδήποτε επίπεδο φωτεινότητας"
+    "anyBrightnessLevelLabel": "οποιοδήποτε επίπεδο φωτεινότητας",
+    "veryHighLabel": "πολύ υψηλή",
+    "highLabel": "υψηλή",
+    "normalLabel": "κανονική",
+    "lowLabel": "χαμηλή",
+    "veryLowLabel": "πολύ χαμηλή",
+    "priorityLabel": " Προτεραιότητα ",
+    "priorityDescriptionLevelLabel": "πολύ υψηλή προτεραιότητα",
+    "priorityText": " προτεραιότητα"
 }
